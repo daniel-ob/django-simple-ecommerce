@@ -1,4 +1,6 @@
 import os
+
+import dj_database_url
 import environ
 
 env = environ.Env()
@@ -131,16 +133,10 @@ if DEBUG is False:
     ALLOWED_HOSTS = ['www.domain.com']
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': ''
-        }
-    }
+    DATABASES['default'] = dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 
     PAYPAL_CLIENT_ID = env('PAYPAL_LIVE_CLIENT_ID')
     PAYPAL_SECRET_KEY = env('PAYPAL_LIVE_SECRET_KEY')

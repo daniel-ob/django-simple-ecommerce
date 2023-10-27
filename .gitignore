@@ -147,3 +147,5 @@ static_root
 .idea
 .vscode
 .atom
+
+*.pem
