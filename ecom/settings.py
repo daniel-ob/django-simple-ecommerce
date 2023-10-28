@@ -10,7 +10,7 @@ environ.Env.read_env()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env('SECRET_KEY')
-DEBUG = env('DEBUG')
+DEBUG = env.bool('DEBUG')
 ALLOWED_HOSTS = ['*']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     'staff'
 ]
 
-DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
-NOTIFY_EMAIL = env('NOTIFY_EMAIL')
+DEFAULT_FROM_EMAIL = env.email('DEFAULT_FROM_EMAIL')
+NOTIFY_EMAIL = env.email('NOTIFY_EMAIL')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
