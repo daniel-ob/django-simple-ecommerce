@@ -23,6 +23,9 @@ class ProductListView(generic.ListView):
 
     def get_queryset(self):
         qs = Product.objects.all()
+        query = self.request.GET.get('q')
+        if query:
+            qs = qs.filter(title__icontains=query)
         category = self.request.GET.get('category', None)
         if category:
             qs = qs.filter(Q(primary_category__name=category) |
@@ -32,7 +35,8 @@ class ProductListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(ProductListView, self).get_context_data(**kwargs)
         context.update({
-            "categories": Category.objects.values("name")
+            "categories": Category.objects.values("name"),
+            "query": self.request.GET.get('q')
         })
         return context
 
