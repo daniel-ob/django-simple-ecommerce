@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     'staff'
 ]
 
-DEFAULT_FROM_EMAIL = env.email('DEFAULT_FROM_EMAIL')
-NOTIFY_EMAIL = env.email('NOTIFY_EMAIL')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+NOTIFY_EMAIL = env('NOTIFY_EMAIL')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
