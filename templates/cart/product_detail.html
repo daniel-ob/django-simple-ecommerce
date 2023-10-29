@@ -23,6 +23,7 @@
             <div class="col-md-6">
                 <h2 class="text-black">{{ product.title }}</h2>
                 <p>{{ product.description }}</p>
+                <p>Unit price: ${{ product.get_price }}</p>
                 <p>Available stock: {{ product.stock }} units</p>
                 {% if product.in_stock %}
                 <form method="POST">
