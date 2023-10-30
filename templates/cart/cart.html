@@ -33,7 +33,7 @@
                         </thead>
                         <tbody>
                             {% for item in order.items.all %}
-                            <tr>
+                            <tr class="cart-item">
                                 <td class="product-thumbnail">
                                     <img src="{{ item.product.image.url }}" class="img-fluid">
                                 </td>
@@ -107,7 +107,7 @@
                                 <span class="text-black">Subtotal</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black">${{ order.get_subtotal }}</strong>
+                                <strong id="id_subtotal" class="text-black">${{ order.get_subtotal }}</strong>
                             </div>
                         </div>
 
@@ -116,7 +116,7 @@
                                 <span class="text-black">Total</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black">${{ order.get_total }}</strong>
+                                <strong id="id_total" class="text-black">${{ order.get_total }}</strong>
                             </div>
                         </div>
 
